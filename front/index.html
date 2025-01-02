@@ -18,27 +18,20 @@
 <body class="bg-gray-100 p-4 bg-gray-300">
     <div id="app" class="container mx-auto mt-16 shadow-2xl rounded-xl border-double border-4 border-blue-600">
         <h1 class="text-2xl font-bold mb-4; text-center mt-14 text-violet-800">Tabela de Notas Fiscais</h1>
-        <table id="notasTable" class="display w-full">
-            <thead>
-                <tr>
-                    <th class="text-indigo-600">ID</th>
-                    <th class="text-indigo-600">Tipo</th>
-                    <th class="text-indigo-600">Numero da Nota</th>
-                    <th class="text-indigo-600">Chave da Nota</th>
-                    <th class="text-indigo-600">CNPJ</th>
-                    <th class="text-indigo-600">Nome do Emitente</th>
-                    <th class="text-indigo-600">Valor</th>
-                    <th class="text-indigo-600">Data</th>
-                </tr>
-            </thead>
-            <tbody class="text-violet-700">
-                <!-- Dados preenchidos dinamicamente -->
-            </tbody>
-        </table>
+        <div class="overflow-x-scroll">
+            <table id="notasTable" class="display w-full truncate text-justify text-indigo-600">
+                <thead class="text-indigo-600">
+                    <!-- Cabeçalhos com nomes das colunas -->
+                </thead>
+                <tbody class="text-violet-700">
+                    <!-- Dados preenchidos dinamicamente -->
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src="app.js"></script>
     <script>
-        
+
     </script>
 </body>
 
