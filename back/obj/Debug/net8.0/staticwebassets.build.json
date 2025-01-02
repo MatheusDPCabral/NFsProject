@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "VFWsbCyC3StpjauWnuIvbTadR7X7vLqeldYNP77gytU=",
+  "Source": "ApiNotaFiscal",
+  "BasePath": "_content/ApiNotaFiscal",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

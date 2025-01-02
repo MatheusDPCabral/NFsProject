@@ -1,0 +1,150 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ApiNotaFiscal",
+    "version": "1.0"
+  },
+  "paths": {
+    "/NotaFiscal/processar-xmls": {
+      "post": {
+        "tags": [
+          "NotaFiscal"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/NotaFiscal": {
+      "get": {
+        "tags": [
+          "NotaFiscal"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotaFiscal"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotaFiscal"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotaFiscal"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "NotaFiscal"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/NotaFiscal/{id}": {
+      "delete": {
+        "tags": [
+          "NotaFiscal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NotaFiscal": {
+        "required": [
+          "chaveNota",
+          "numeroNota",
+          "tipo"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipo": {
+            "$ref": "#/components/schemas/TipoNota"
+          },
+          "numeroNota": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "chaveNota": {
+            "maxLength": 44,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cnpjEmitente": {
+            "maxLength": 18,
+            "type": "string",
+            "nullable": true
+          },
+          "nomeEmitente": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "valorNota": {
+            "type": "number",
+            "format": "double"
+          },
+          "dataEmissao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoNota": {
+        "enum": [
+          "NFe",
+          "CTe",
+          "NFCe",
+          "CFe"
+        ],
+        "type": "string"
+      }
+    }
+  }
+}
