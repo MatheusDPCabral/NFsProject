@@ -1,23 +1,19 @@
-# Projeto: Sistema de Notas Fiscais
+# Projeto de leitor de Notas Fiscais
 
 ## Descrição
-Sistema desenvolvido com as seguintes tecnologias:
+Sistema desenvolvido com:
 
-- **Back-end**: C#/.NET
-- **Front-end**: Vue.js, Tailwind CSS
+- **Back-end - Visual Studio**: C#/.NET, ASP.NET
+- **Front-end - VS Code**: Vue.js, Tailwind CSS
 - **Banco de Dados**: SQL Server
 
-Este sistema permite salvar dados de notas fiscais em um banco de dados a partir de arquivos XML e exibi-los em uma interface web responsiva.
+Este sistema permite salvar dados de notas fiscais em um banco de dados a partir de arquivos XML e exibi-los no formato de uma tabela em uma interface web.
 
 ## Configuração do Projeto
 
 ### Pré-requisitos
 
-1. **Banco de Dados**: Certifique-se de ter um banco de dados SQL Server configurado.
-2. **Dependências**: Certifique-se de ter as dependências necessárias instaladas:
-   - .NET SDK
-   - Node.js (para o front-end)
-   - Gerenciador de pacotes npm ou yarn
+**Banco de Dados**: Ter um banco de dados SQL Server configurado.
 
 ### Configuração Inicial
 
@@ -31,37 +27,23 @@ Este sistema permite salvar dados de notas fiscais em um banco de dados a partir
    ```
 3. No arquivo `NotaFiscalController.cs`, ajuste o caminho dentro do método `HttpPost` para apontar para o diretório da pasta XML no seu desktop.
 
-#### Front-end
-1. Navegue até a pasta do front-end.
-2. Instale as dependências necessárias:
-   ```bash
-   npm install
-   ```
-
 ## Executando o Projeto
 
 ### 1. Inicializar a API
-- Navegue até a pasta do back-end e execute o comando:
-  ```bash
-  dotnet run
-  ```
-- A API será iniciada e abrirá o **Swagger** (ou use outra ferramenta de requisições, como Postman).
+- No Visual Studio avegue até a pasta do back-end e aperte o botão de "Run" ou aperte Ctrl+F5 (após fazer as alterações ditas acima).
+
+- A API será iniciada e abrirá o **Swagger** (ou use outra ferramenta de requisições, como Postman) e, após isso, as notas fiscais estarão disponiveis na tabela para visualização.
 
 ### 2. Configurar e Enviar Dados para o Banco de Dados
-1. Faça uma requisição **POST** na API para enviar os dados dos arquivos XML para o banco de dados.
+1. Dentro da sua ferramenta de requisição, faça uma requisição **POST** na API para enviar os dados dos arquivos XML para o banco de dados.
 2. **Atenção**: Ao executar o POST, todos os arquivos XML do diretório configurado serão carregados no banco. Caso a requisição seja repetida, os dados serão duplicados. Se necessário, utilize um **DELETE** request para limpar os dados antes de executar o POST novamente.
 
 ### 3. Inicializar o Front-end
-- Navegue até a pasta do front-end e execute o comando:
-  ```bash
-  npm run dev
-  ```
-- O front-end será iniciado e estará disponível no navegador no endereço indicado.
+- No VS Code, baixe a extensão `Live Server`, depois navegue até a pasta do front-end e depois aperte em "Go Live".
+ 
+- O front-end será iniciado e irá abrir no seu navegador principal automaticamente.
 
 ## Observações Importantes
 
 - Certifique-se de que a API esteja em execução antes de inicializar o front-end.
 - Caso ocorra duplicação de dados, utilize um DELETE request na API para corrigir.
-
-## Contato
-Para dúvidas ou sugestões, entre em contato através do meu [portfólio](#).
