@@ -1,5 +1,6 @@
 ﻿using ApiNotaFiscal.Data;
 using ApiNotaFiscal.Models;
+using System.Globalization;
 using System.Xml.Linq;
 
 public class NotaFiscalService
@@ -34,6 +35,13 @@ public class NotaFiscalService
                     var cnpjEmitente = allElements.FirstOrDefault(e => e.Name.LocalName == "CNPJ")?.Value;
                     var nomeEmitente = allElements.FirstOrDefault(e => e.Name.LocalName == "xNome")?.Value;
                     var valorNota = allElements.FirstOrDefault(e => e.Name.LocalName == "vNF" || e.Name.LocalName == "vTPrest" || e.Name.LocalName == "vCFe")?.Value;
+
+                    if (!string.IsNullOrEmpty(valorNota))
+                    {
+                        valorNota = valorNota.Replace(",", ".");
+                    }
+
+                    double.TryParse(valorNota, NumberStyles.Any, CultureInfo.InvariantCulture, out double v);
 
                     string numeroNota = null, chaveNota = null, dataEmissao = null;
 
@@ -78,7 +86,7 @@ public class NotaFiscalService
                             DateTime.TryParse(dataEmissao, out DateTime data) ? data : DateTime.MinValue,
                             cnpjEmitente,
                             nomeEmitente,
-                            double.TryParse(valorNota, out double v) ? v : 0
+                            v // valor da nota como double
                         ));
                     }
                 }
@@ -90,10 +98,10 @@ public class NotaFiscalService
         }
 
         // Salvar as notas fiscais no banco
-        /*if (listaNotas.Any())
+        if (listaNotas.Any())
         {
             _context.NotasFiscais.AddRange(listaNotas);
             await _context.SaveChangesAsync();
-        }*/
+        }
     }
 }
