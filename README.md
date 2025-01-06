@@ -26,6 +26,7 @@ Este sistema permite salvar dados de notas fiscais em um banco de dados a partir
    }
    ```
 3. No arquivo `NotaFiscalController.cs`, ajuste o caminho dentro do método `HttpPost` para apontar para o diretório da pasta XML no seu desktop.
+4. Ainda no `NotaFiscalController.cs`, dentro do metodo de deletar todas as notas, troque o `dbo.NotaFisca` pelo nome de sua tabela do banco de dados do projeto
 
 ## Executando o Projeto
 
