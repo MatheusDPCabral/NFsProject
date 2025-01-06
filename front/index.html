@@ -11,24 +11,39 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <!-- referência para Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 <body class="bg-gray-100 p-4 bg-gray-300">
-    <div id="app" class="container mx-auto mt-16 shadow-2xl rounded-xl border-double border-4 border-blue-600">
-        <h1 class="text-2xl font-bold mb-4; text-center mt-14 text-violet-800">Tabela de Notas Fiscais</h1>
-        <div class="overflow-x-scroll">
-            <table id="notasTable" class="display w-full truncate text-justify text-indigo-600">
-                <thead class="text-indigo-600 text-base;">
-                    <!-- Cabeçalhos com nomes das colunas -->
-                </thead>
-                <tbody class="text-violet-700 text-sm">
-                    <!-- Dados preenchidos dinamicamente -->
-                </tbody>
-            </table>
+    
+    <div class="flex flex-col space-y-1 mt-14">
+
+        <div id="app" class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <button type="button" @click="extractAllNotes()" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Take All</button>
+            <button type="button" @click="deleteAllNotes()" class="text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Delete All</button>
         </div>
+
+        <div id="app" class="container mx-auto mt-16 shadow-2xl rounded-xl border-double border-4 border-blue-600">
+            <h1 class="text-2xl font-bold mb-4; text-center mt-14 text-violet-800">Tabela de Notas Fiscais</h1>
+            <div class="overflow-x-scroll">
+                <table id="notasTable" class="display w-full truncate text-justify text-indigo-600">
+                    <thead class="text-indigo-600 text-base;">
+                        <!-- Cabeçalhos com nomes das colunas -->
+                    </thead>
+                    <tbody class="text-violet-700 text-sm">
+                        <!-- Dados preenchidos dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
     </div>
+
     <script src="app.js"></script>
     <script>
 
