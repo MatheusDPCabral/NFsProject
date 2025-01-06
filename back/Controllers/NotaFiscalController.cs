@@ -41,7 +41,7 @@ public class NotaFiscalController : Controller
     }
 
     [HttpDelete("{id}")]
-    public IActionResult DeletaFilme(int id)
+    public IActionResult DeletaNota(int id)
     {
         var filme = _context.NotasFiscais.FirstOrDefault(
             filme => filme.Id == id);
@@ -62,8 +62,8 @@ public class NotaFiscalController : Controller
         _context.SaveChanges();                     // Salva as alterações no banco
 
 
-       // Em teste: funcionalidade q reseta a "contagem" dos ids, começando novamente, apartir do procimo post, do Id=1
-       // _context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbNotaFiscal', RESEED, 0)");
+        // Resetar a contagem dos IDs para começar do 1 novamente
+        _context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.NotaFiscal', RESEED, 0)");
 
 
         return NoContent();
